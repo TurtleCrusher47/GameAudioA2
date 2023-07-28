@@ -12,6 +12,7 @@
 
 // FPS Counter
 #include "TimeControl\FPSCounter.h"
+#include "SoundController\MusicPlayer.h"
 
 struct GLFWwindow;
 
@@ -34,6 +35,8 @@ public:
 	int GetWindowWidth(void) const;
 	
 protected:
+	CMusicPlayer* cMusicPlayer;
+
 	// The handler to the CSettings instance
 	CSettings* cSettings;
 	//// The handler to the CScene2D instance

@@ -230,6 +230,9 @@
     <ClCompile Include="Image\Minimap\Minimap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\SoundController\MusicPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Scene2D\Scene2D.h">
@@ -409,6 +412,12 @@
     <ClInclude Include="Image\Minimap\Minimap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\SoundController\MusicPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SoundController\filesystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Models\UVMap.jpg" />
@@ -517,14 +526,16 @@
     <None Include="Shader\Shader3D_SkyBox.vs" />
     <None Include="Shader\Shader3D_Terrain.fs" />
     <None Include="Shader\Shader3D_Terrain.vs" />
-    <None Include="Sounds\Sound_Bell.ogg" />
-    <None Include="Sounds\Sound_Explosion.ogg" />
     <None Include="Sounds\Sound_Jump.ogg" />
     <None Include="imgui.ini" />
     <None Include="Debug\App.exe.recipe" />
     <None Include="Debug\App.ilk" />
     <None Include="Debug\vc143.idb" />
     <None Include="Debug\vc143.pdb" />
+    <None Include="Music\Level_Music.ogg" />
+    <None Include="Sounds\Sound_Dash.ogg" />
+    <None Include="Sounds\Sound_Landing.ogg" />
+    <None Include="Sounds\Sound_Step.ogg" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Debug\App.Build.CppClean.log" />

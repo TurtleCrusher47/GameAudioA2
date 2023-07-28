@@ -7,6 +7,7 @@
 
 #include <string>
 #include <cstdlib>
+#include <sys/stat.h>
 #include "../GameControl/Settings.h"
 
 #ifdef __linux__ 
@@ -26,7 +27,18 @@ public:
 	static std::string getPath(const std::string& path)
 	{
 		static std::string(*pathBuilder)(std::string const &) = getPathBuilder();
-		return (*pathBuilder)(path);
+
+		std::string result = (*pathBuilder)(path);
+		if (DoesFileExists(result) == true)
+			return result;
+		else
+			return "";
+	}
+
+	static bool DoesFileExists(const std::string& name)
+	{
+		struct stat buffer;
+		return (stat(name.c_str(), &buffer) == 0);
 	}
 
 private:

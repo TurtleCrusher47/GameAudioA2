@@ -68,6 +68,7 @@
     <ClCompile Include="Source\Scene3D\WeaponInfo\Projectile.cpp" />
     <ClCompile Include="Source\Scene3D\WeaponInfo\ProjectileManager.cpp" />
     <ClCompile Include="Source\Scene3D\WeaponInfo\WeaponInfo.cpp" />
+    <ClCompile Include="Source\SoundController\MusicPlayer.cpp" />
     <ClCompile Include="Source\SoundController\SoundController.cpp" />
     <ClCompile Include="Source\SoundController\SoundInfo.cpp" />
   </ItemGroup>
@@ -129,6 +130,8 @@
     <ClInclude Include="Source\Scene3D\WeaponInfo\Projectile.h" />
     <ClInclude Include="Source\Scene3D\WeaponInfo\ProjectileManager.h" />
     <ClInclude Include="Source\Scene3D\WeaponInfo\WeaponInfo.h" />
+    <ClInclude Include="Source\SoundController\filesystem.h" />
+    <ClInclude Include="Source\SoundController\MusicPlayer.h" />
     <ClInclude Include="Source\SoundController\SoundController.h" />
     <ClInclude Include="Source\SoundController\SoundInfo.h" />
   </ItemGroup>
@@ -224,6 +227,7 @@
     <None Include="Maps\DM2213_Map_Level_01.csv" />
     <None Include="Maps\DM2213_Map_Level_01_SAVEGAME.csv" />
     <None Include="Maps\DM2213_Map_Level_02.csv" />
+    <None Include="Music\Level_Music.ogg" />
     <None Include="Shader\Shader2D.fs" />
     <None Include="Shader\Shader2D.vs" />
     <None Include="Shader\Shader2D_Colour.fs" />
@@ -244,9 +248,10 @@
     <None Include="Shader\Shader3D_SkyBox.vs" />
     <None Include="Shader\Shader3D_Terrain.fs" />
     <None Include="Shader\Shader3D_Terrain.vs" />
-    <None Include="Sounds\Sound_Bell.ogg" />
-    <None Include="Sounds\Sound_Explosion.ogg" />
+    <None Include="Sounds\Sound_Dash.ogg" />
     <None Include="Sounds\Sound_Jump.ogg" />
+    <None Include="Sounds\Sound_Landing.ogg" />
+    <None Include="Sounds\Sound_Step.ogg" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Debug\App.Build.CppClean.log" />

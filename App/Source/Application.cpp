@@ -17,6 +17,7 @@
 
 // Include SoundController
 #include "SoundController/SoundController.h"
+#include "SoundController/MusicPlayer.h"
 
 #include "GameControl\Settings.h"
 
@@ -42,6 +43,8 @@ using namespace std;
 #include "GameStateManagement/Play3DGameState.h"
 // Include CPauseState
 #include "GameStateManagement/PauseState.h"
+
+#include "System\filesystem.h"
 
 /**
  @brief Define an error callback
@@ -145,12 +148,26 @@ bool Application::Init(void)
 		return false;
 	}
 
+	// Initialise cMusicPlayer
+	if (CMusicPlayer::GetInstance()->Init() == false)
+	{
+		std::cout << "Failed to initialise CMusicPlayer class instance" << std::endl;
+		return false;
+	}
+
 	// Initialise the CSoundController singleton
 	if (CSoundController::GetInstance()->Init() == false)
 	{
 		std::cout << "Failed to initialise CSoundController class instance" << std::endl;
 		return false;
 	}
+
+	cMusicPlayer = CMusicPlayer::GetInstance();
+
+	cMusicPlayer->AddMusic(FileSystem::getPath("Music\\Level_Music.ogg"), 1, true);
+
+	/*cMusicPlayer->PlayMusicByID(1);
+	cMusicPlayer->SetMasterVolume(0.05);*/
 
 	// Get the CSettings instance
 	cSettings = CSettings::GetInstance();

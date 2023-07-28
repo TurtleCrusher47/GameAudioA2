@@ -85,9 +85,10 @@ bool CScene2D::Init(void)
 {
 	// Load the sounds to CSoundController
 	cSoundController = CSoundController::GetInstance();
-	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Bell.ogg"), 1, true);
-	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Explosion.ogg"), 2, true);
+	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Step.ogg"), 1, true);
+	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Dash.ogg"), 2, true);
 	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Jump.ogg"), 3, true);
+	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Land.ogg"), 4, true);
 
 	// Create and initialise the Map 2D
 	cMap2D = CMap2D::GetInstance();

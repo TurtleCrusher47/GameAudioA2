@@ -370,6 +370,8 @@ bool CPlayer2D::Update(const double dElapsedTime)
 	// If dashing
 	else if (cPhysics2D.GetHorizontalStatus() == CPhysics2D::HORIZONTALSTATUS::DASH)
 	{
+		cSoundController->PlaySoundByID(2);
+
 		// If the last direction the player moved in was left
 		if (lastInputHorizontal == 'A')
 		{
@@ -454,6 +456,8 @@ bool CPlayer2D::Update(const double dElapsedTime)
 	{
 		//cout << "Check horizontal movement" << endl;
 		// Check if the player walks into an obstacle
+
+		cSoundController->PlaySoundByID(1);
 		if (cMap2D->CheckHorizontalCollision(vec2Position, vec2HalfSize, vec2NewPosition) == CSettings::RESULTS::POSITIVE)
 		{
 			//cout << "Horizontal collision!" << endl;
@@ -602,8 +606,6 @@ void CPlayer2D::InteractWithMap(void)
 		// Increase the coins by one
 		cInventoryItem = cInventoryManager->GetItem("Coins");
 		cInventoryItem->Add(1);
-		// Play a bell sound
-		cSoundController->PlaySoundByID(1);
 		break;
 	case 10:
 		// Erase the life from this position
