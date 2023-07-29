@@ -61,6 +61,8 @@ bool CPlayer2D::Init(void)
 	// Load the sounds to CSoundController
 	cSoundController = CSoundController::GetInstance();
 
+	cSoundController->SetMasterVolume(0.5f);
+
 	// Store the keyboard controller singleton instance here
 	cKeyboardController = CKeyboardController::GetInstance();
 	// Reset all keys since we are starting a new game
@@ -195,8 +197,6 @@ bool CPlayer2D::Update(const double dElapsedTime)
 {
 	#pragma region sound
 
-	cSoundController->SetMasterVolume(0.01);
-
 	#pragma endregion
 
 	// Reset vec2MovementVelocity
@@ -280,6 +280,7 @@ bool CPlayer2D::Update(const double dElapsedTime)
 		else if (cKeyboardController->IsKeyDown(GLFW_KEY_A))
 		{
 			animatedSprites->PlayAnimation("movingLeft", -1, 2.0f);
+			cSoundController->PlaySoundByID(1);
 			lastInputHorizontal = 'A';
 			idleTimer = 0;
 			vec2MovementVelocity.x -= vec2WalkSpeed.x;
@@ -289,6 +290,7 @@ bool CPlayer2D::Update(const double dElapsedTime)
 		else if (cKeyboardController->IsKeyDown(GLFW_KEY_D))
 		{
 			animatedSprites->PlayAnimation("movingRight", -1, 2.0f);
+			cSoundController->PlaySoundByID(1);
 			lastInputHorizontal = 'D';
 			idleTimer = 0;
 			vec2MovementVelocity.x += vec2WalkSpeed.x;
@@ -457,7 +459,6 @@ bool CPlayer2D::Update(const double dElapsedTime)
 		//cout << "Check horizontal movement" << endl;
 		// Check if the player walks into an obstacle
 
-		cSoundController->PlaySoundByID(1);
 		if (cMap2D->CheckHorizontalCollision(vec2Position, vec2HalfSize, vec2NewPosition) == CSettings::RESULTS::POSITIVE)
 		{
 			//cout << "Horizontal collision!" << endl;
@@ -497,6 +498,8 @@ bool CPlayer2D::Update(const double dElapsedTime)
 
 			lastIdlePosition = vec2Position;
 			boostable = true;
+
+			cSoundController->PlaySoundByID(4);
 	}
 
 	// Update the vec2Position with the new position
@@ -606,6 +609,7 @@ void CPlayer2D::InteractWithMap(void)
 		// Increase the coins by one
 		cInventoryItem = cInventoryManager->GetItem("Coins");
 		cInventoryItem->Add(1);
+		cSoundController->PlaySoundByID(9);
 		break;
 	case 10:
 		// Erase the life from this position
@@ -613,30 +617,35 @@ void CPlayer2D::InteractWithMap(void)
 		// Increase the lives by 1
 		cInventoryItem = cInventoryManager->GetItem("Lives");
 		cInventoryItem->Add(1);
+		cSoundController->PlaySoundByID(8);
 		break;
 	case 20:
 		// Decrease the lives by 1
 		cInventoryItem = cInventoryManager->GetItem("Lives");
 		cInventoryItem->Remove(1);
 		vec2Position = lastIdlePosition;
+		cSoundController->PlaySoundByID(5);
 		break;
 	case 21:
 		// Decrease the lives by 1
 		cInventoryItem = cInventoryManager->GetItem("Lives");
 		cInventoryItem->Remove(1);
 		vec2Position = lastIdlePosition;
+		cSoundController->PlaySoundByID(5);
 		break;
 	case 22:
 		// Decrease the lives by 1
 		cInventoryItem = cInventoryManager->GetItem("Lives");
 		cInventoryItem->Remove(1);
 		vec2Position = lastIdlePosition;
+		cSoundController->PlaySoundByID(5);
 		break;
 	case 23:
 		// Decrease the lives by 1
 		cInventoryItem = cInventoryManager->GetItem("Lives");
 		cInventoryItem->Remove(1);
 		vec2Position = lastIdlePosition;
+		cSoundController->PlaySoundByID(5);
 		break;
 	case 24:
 		boosted = true;
@@ -660,12 +669,14 @@ void CPlayer2D::InteractWithMap(void)
 
 		cInventoryItem = cInventoryManager->GetItem("Jump_Potion");
 		cInventoryItem->Add(1);
+		cSoundController->PlaySoundByID(11);
 		break;
 	case 98:
 		cInventoryItem = cInventoryManager->GetItem("Coins");
 		// Level has been completed if all coins have been collected
 		if (cInventoryItem->GetCount() >= cInventoryItem->GetMaxCount())
 		CGameManager::GetInstance()->bLevelCompleted = true;
+		cSoundController->PlaySoundByID(10);
 		break;
 	case 99:
 		cInventoryItem = cInventoryManager->GetItem("Coins");
@@ -724,4 +735,6 @@ void CPlayer2D::BoostPlayer(const double dElapsedTime)
 		boostDirection = '\0';
 		boostable = false;
 		boosted = false;
+
+		cSoundController->PlaySoundByID(7);
 }
