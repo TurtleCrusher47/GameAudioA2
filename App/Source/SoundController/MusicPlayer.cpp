@@ -549,8 +549,16 @@ bool CMusicPlayer::MasterVolumeDecrease(void)
 	return true;
 }
 
+float CMusicPlayer::GetMasterVolume()
+{
+	return cSoundEngine->getSoundVolume();
+}
+
 void CMusicPlayer::SetMasterVolume(float volume)
 {
+	if (volume > 1.f || volume < 0.f)
+		return;
+
 	cSoundEngine->setSoundVolume(glm::clamp(volume, 0.0f, 1.0f));
 }
 

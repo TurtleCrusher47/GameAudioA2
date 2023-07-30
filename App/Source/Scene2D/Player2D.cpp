@@ -675,8 +675,10 @@ void CPlayer2D::InteractWithMap(void)
 		cInventoryItem = cInventoryManager->GetItem("Coins");
 		// Level has been completed if all coins have been collected
 		if (cInventoryItem->GetCount() >= cInventoryItem->GetMaxCount())
-		CGameManager::GetInstance()->bLevelCompleted = true;
-		cSoundController->PlaySoundByID(10);
+		{
+			CGameManager::GetInstance()->bLevelCompleted = true;
+			cSoundController->PlaySoundByID(10);
+		}
 		break;
 	case 99:
 		cInventoryItem = cInventoryManager->GetItem("Coins");

@@ -85,12 +85,15 @@ bool CScene2D::Init(void)
 {
 	// Load the sounds to CSoundController
 	cSoundController = CSoundController::GetInstance();
+
+	// Player SFX
 	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Step.ogg"), 1, true);
 	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Dash.ogg"), 2, true);
 	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Jump.ogg"), 3, true);
 	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Landing.ogg"), 4, true);
 	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Damaged.ogg"), 5, true);
-	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Dash.ogg"), 6, true);
+
+	// Map SFX
 	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_DashPad.ogg"), 7, true);
 	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Heal.ogg"), 8, true);
 	cSoundController->LoadSound(FileSystem::getPath("Sounds\\Sound_Money.ogg"), 9, true);

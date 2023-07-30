@@ -48,6 +48,8 @@ public:
 	// Decrease volume of a ISoundSource
 	bool VolumeDecrease(void);
 
+	void SetVolume(float volume);
+
 	// For 3D sounds only
 	// Set position
 	void SetPosition(const float x, const float y, const float z);

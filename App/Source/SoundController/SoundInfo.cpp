@@ -127,6 +127,11 @@ bool CSoundInfo::VolumeDecrease(void)
 	return true;
 }
 
+void CSoundInfo::SetVolume(float volume)
+{
+	pSoundSource->setDefaultVolume(volume);
+}
+
 // For 3D sounds only
 /**
  @brief Set Listener position

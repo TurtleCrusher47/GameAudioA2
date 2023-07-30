@@ -71,7 +71,7 @@ bool CPlay3DGameState::Update(const double dElapsedTime)
 		// Reset the CKeyboardController
 		CKeyboardController::GetInstance()->Reset();
 
-		// Load the menu state
+		// Load the pause state
 		CGameStateManager::GetInstance()->SetPauseGameState("PauseState");
 	}
 

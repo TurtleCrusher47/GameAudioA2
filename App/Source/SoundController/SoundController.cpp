@@ -183,8 +183,16 @@ bool CSoundController::MasterVolumeDecrease(void)
 	return true;
 }
 
+float CSoundController::GetMasterVolume()
+{
+	return cSoundEngine->getSoundVolume();
+}
+
 void CSoundController::SetMasterVolume(float volume)
 {
+	if (volume > 1.f || volume < 0.f)
+		return;
+
 	cSoundEngine->setSoundVolume(glm::clamp(volume, 0.0f, 1.0f));
 }
 
@@ -245,6 +253,25 @@ bool CSoundController::VolumeDecrease(const int ID)
 
 	// Decrease the volume by 10%
 	pISoundSource->setDefaultVolume(fCurrentVolume - 0.1f);
+
+	return true;
+}
+
+float CSoundController::GetVolume(const int ID)
+{
+	// Get the ISoundSource
+	ISoundSource* pISoundSource = GetSound(ID)->GetSound();
+	if (pISoundSource == nullptr)
+	{
+		return false;
+	}
+
+	return pISoundSource->getDefaultVolume();
+}
+
+bool CSoundController::SetVolume(const int ID, float volume)
+{
+	GetSound(ID)->SetVolume(volume);
 
 	return true;
 }

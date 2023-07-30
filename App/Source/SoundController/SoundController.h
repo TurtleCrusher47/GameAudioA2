@@ -46,6 +46,7 @@ public:
 	// Decrease Master volume
 	bool MasterVolumeDecrease(void);
 
+	float GetMasterVolume();
 	void SetMasterVolume(float volume);
 
 
@@ -53,6 +54,9 @@ public:
 	bool VolumeIncrease(const int ID);
 	// Decrease volume of a ISoundSource
 	bool VolumeDecrease(const int ID);
+
+	float GetVolume(const int ID);
+	bool SetVolume(const int ID, float volume);
 
 	// For 3D sounds only
 	// Set Listener position

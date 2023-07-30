@@ -96,6 +96,7 @@ public:
 	// Decrease Master volume
 	bool MasterVolumeDecrease(void);
 
+	float GetMasterVolume();
 	void SetMasterVolume(float volume);
 
 	// Increase volume of a ISoundSource

@@ -164,10 +164,12 @@ bool Application::Init(void)
 
 	cMusicPlayer = CMusicPlayer::GetInstance();
 
-	cMusicPlayer->AddMusic(FileSystem::getPath("Music\\Music_Title.ogg"), 1, true);
+	cMusicPlayer->AddMusic(FileSystem::getPath("Music\\Music_Level.ogg"), 1, true);
 
 	cMusicPlayer->PlayMusicByID(1);
+	cMusicPlayer->SetPlayMode(CMusicPlayer::PLAYMODE::SINGLE_LOOP);
 	cMusicPlayer->SetMasterVolume(0.5f);
+	cMusicPlayer->PlayMusic();
 
 	// Get the CSettings instance
 	cSettings = CSettings::GetInstance();

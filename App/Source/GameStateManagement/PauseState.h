@@ -41,6 +41,12 @@ public:
 	virtual void Destroy(void);
 
 protected:
+	float width;
+	float height;
+
+	// Flags for IMGUI
+	ImGuiWindowFlags window_flags;
+
 	struct ButtonData
 	{
 		std::string fileName;
@@ -49,4 +55,11 @@ protected:
 
 	ButtonData VolumeIncreaseButtonData;
 	ButtonData VolumeDecreaseButtonData;
+
+	// The handler to the irrklang Sound Engine
+	ISoundEngine* cSoundEngine;
+
+	CSettings* cSettings;
+	CMusicPlayer* cMusicPlayer;
+	CSoundController* cSoundController;
 };

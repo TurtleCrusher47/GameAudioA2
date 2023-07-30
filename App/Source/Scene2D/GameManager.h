@@ -20,6 +20,7 @@ public:
 	// Initialise this class instance
 	bool Init(void);
 
+
 	// Boolean flag to indicate if the player won the game
 	bool bPlayerWon;
 	// Boolean flag to indicate if the player lost the game
